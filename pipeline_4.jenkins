@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Test'){
+            steps {
+                sh 'pytest tests1.py'
+            }
+        }
+        stage('Merge to relese'){
+            steps {
+                sh 'merge-to-release.sh'
+            }
+        }
+        stage('Merge to main'){
+            steps {
+                sh 'merge-to-main.sh'
+            }
+        }
+    }
+}
