@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Merge to relese'){
             steps {
-                sh 'merge-to-release.sh'
+                sh 'sh merge-to-release.sh'
             }
         }
         stage('Merge to main'){
             steps {
-                sh 'merge-to-main.sh'
+                sh 'sh merge-to-main.sh'
             }
         }
     }
