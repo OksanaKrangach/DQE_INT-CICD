@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage ('GIT Checkout'){
+            steps {
+                git changelog: false, poll: false, url: 'https://github.com/OksanaKrangach/DQE_Int_CICD.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Test'){
+            steps {
+                sh 'make check'
+                junit 'reports/**/*.xml'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'make publish'
+            }
+        }
+    }
+}
