@@ -9,6 +9,6 @@ git checkout main
 git pull
 git merge release
 git commit -m "New release"
-git push origin
+git push
 
 git checkout feature1

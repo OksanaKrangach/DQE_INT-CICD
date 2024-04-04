@@ -6,6 +6,6 @@ git pull
 git pull
 git merge develop
 git commit -m "Release update"
-git push origin
+git push
 
 git checkout feature1
