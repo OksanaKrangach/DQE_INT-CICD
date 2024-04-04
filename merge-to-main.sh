@@ -1,8 +1,13 @@
 #!/bin/bash
 
-git config --global user.email "oksana_krangach@epam.com"
-git config --global user.name "Oksana Krangach"
+#git config --global user.email "oksana_krangach@epam.com"
+#git config --global user.name "Oksana Krangach"
 
+echo "====================================================================="
+echo "START"
+echo "====================================================================="
+git status
+echo "====================================================================="
 git checkout release
 git pull
 git checkout main
