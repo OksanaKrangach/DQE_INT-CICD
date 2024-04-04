@@ -9,7 +9,7 @@ pipeline {
                 sh 'pytest tests1.py'
             }
         }
-        stage('Merge to relese'){
+        stage('Merge to release'){
             steps {
                 sh 'sh merge-to-release.sh'
             }
