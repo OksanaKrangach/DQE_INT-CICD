@@ -11,7 +11,10 @@ pipeline {
         }
         stage('Merge to release'){
             steps {
-                sh 'sh merge-to-release.sh'
+                withCredentials([usernamePassword(credentialsId: 'git-pass-credentials-ID', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    sh('sh merge-to-release.sh')
+                    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/OksanaKrangach/DQE_Int_CICD.git')
+                }                    
             }
         }
         stage('Merge to main'){
