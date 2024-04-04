@@ -9,6 +9,9 @@ git checkout main
 git pull
 git merge release
 git commit -m "New release"
+echo "====================================================================="
+git status
+echo "====================================================================="
 git push
 
 git checkout feature1
