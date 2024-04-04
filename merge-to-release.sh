@@ -9,6 +9,6 @@ git commit -m "Release update"
 echo "====================================================================="
 git status
 echo "====================================================================="
-git push
+git push > /tmp/out 2>&1
 
 git checkout feature1
