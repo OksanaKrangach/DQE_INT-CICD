@@ -14,7 +14,6 @@ git pull
 git pull
 git merge develop
 git commit -m "Release update"
-git checkout feature1
 
 echo "---------------------------------------------------------------------"
 echo "FINISH  merge_to_release"
