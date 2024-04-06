@@ -4,7 +4,7 @@
 #git config --global user.name "Oksana Krangach"
 
 echo "#####################################################################"
-echo "START merge_to_release"
+echo "START merge_to_main"
 echo "---------------------------------------------------------------------"
 
 git checkout release
@@ -15,5 +15,5 @@ git merge release
 git commit -m "New release"
 
 echo "---------------------------------------------------------------------"
-echo "FINISH  merge_to_release"
+echo "FINISH  merge_to_main"
 echo "#####################################################################"
