@@ -13,7 +13,6 @@ git checkout main
 git pull
 git merge release
 git commit -m "New release"
-git checkout feature1
 
 echo "---------------------------------------------------------------------"
 echo "FINISH  merge_to_release"
