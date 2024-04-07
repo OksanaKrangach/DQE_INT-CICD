@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Release test'){
             steps {
-                sh 'pytest tests1.py'
+                sh 'pytest tests_relese.py'
             }
         }
         stage('Merge to release'){
@@ -16,19 +16,6 @@ pipeline {
                     sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/OksanaKrangach/DQE_Int_CICD.git')
                 }                    
             }
-        }
-        stage('Main test'){
-            steps {
-                sh 'pytest tests2.py'
-            }
-        }
-        stage('Merge to main'){
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'okjenkins', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                    sh('sh merge-to-main.sh')
-                    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/OksanaKrangach/DQE_Int_CICD.git')
-                }                    
-             }
         }
     }
 }

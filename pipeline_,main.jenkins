@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    options {
+        skipStagesAfterUnstable()
+    }
+        stage('Main test'){
+            steps {
+                sh 'pytest tests_main.py'
+            }
+        }
+        stage('Merge to main'){
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'okjenkins', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    sh('sh merge-to-main.sh')
+                    sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/OksanaKrangach/DQE_Int_CICD.git')
+                }                    
+             }
+        }
+    }
+}
