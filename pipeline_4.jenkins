@@ -4,7 +4,7 @@ pipeline {
         skipStagesAfterUnstable()
     }
     stages {
-        stage('Test'){
+        stage('Release test'){
             steps {
                 sh 'pytest tests1.py'
             }
@@ -15,6 +15,11 @@ pipeline {
                     sh('sh merge-to-release.sh')
                     sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/OksanaKrangach/DQE_Int_CICD.git')
                 }                    
+            }
+        }
+        stage('Main test'){
+            steps {
+                sh 'pytest tests2.py'
             }
         }
         stage('Merge to main'){
