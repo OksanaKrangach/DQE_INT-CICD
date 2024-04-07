@@ -3,6 +3,7 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
+    stages {    
         stage('Main test'){
             steps {
                 sh 'pytest tests_main.py'
@@ -16,4 +17,5 @@ pipeline {
                 }                    
              }
         }
+    }
 }
