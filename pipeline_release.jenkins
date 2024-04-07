@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Release test'){
             steps {
-                sh 'pytest tests_relese.py'
+                sh 'pytest tests_release.py'
             }
         }
         stage('Merge to release'){
